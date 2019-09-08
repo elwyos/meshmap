@@ -1,0 +1,16 @@
+#!python
+#/////////////////////////////////////////////////////////////////
+Import('env')
+includepaths = [ '.', '/home/yose/devtemp/mxe/usr/x86_64-w64-mingw32.static/include/freetype2', '/home/yose/devtemp/mxe/usr/x86_64-w64-mingw32.static/include', '/home/yose/devtemp/mxe/usr/x86_64-w64-mingw32.static/include/SDL', '/home/yose/devtemp/mxe/usr/x86_64-w64-mingw32.static/include/libpng12', '/home/yose/devtemp/mxe/usr/x86_64-w64-mingw32.static/include/bullet']
+#/////////////////////////////////////////////////////////////////
+elccflags = '-m64 -ffunction-sections -fdata-sections  -Wuninitialized -Werror=uninitialized -Wreturn-type -Werror=return-type -fuse-ld=lld -D__MINGW__ -Dmain=SDL_main -D_GNU_SOURCE=1 -D__MING64__ -D__JORMY_MINGW_64__ -Wno-overloaded-shift-op-parentheses -D__ROEV__ -pthread -Wno-deprecated-register '
+elcppflags = '-m64 -ffunction-sections -fdata-sections  -Wuninitialized -Werror=uninitialized -Wreturn-type -Werror=return-type -fuse-ld=lld -D__MINGW__ -Dmain=SDL_main -D_GNU_SOURCE=1 -D__MING64__ -D__JORMY_MINGW_64__ -Wno-overloaded-shift-op-parentheses -D__ROEV__ -pthread -Wno-deprecated-register -std=c++17 '
+#/////////////////////////////////////////////////////////////////
+thefiles = ['main.cl.cpp',
+            'game.cl.cpp',
+            'hooker.cl.cpp'
+           ]
+#/////////////////////////////////////////////////////////////////
+moo = Object(thefiles, CPPPATH = includepaths, CCFLAGS = elccflags, CXXFLAGS = elcppflags, CC = env['CC'], CXX = env['CXX'])
+Return('moo')
+#/////////////////////////////////////////////////////////////////

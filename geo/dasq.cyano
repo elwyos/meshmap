@@ -1,0 +1,10 @@
+packages:
+   geo:
+      requires: shing
+   geomain:
+      requires: geo
+self:
+   package: geo
+children:
+   geomain.ccp:
+      package: geomain

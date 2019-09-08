@@ -1,0 +1,31 @@
+vertheader 
+   struct ClothPoint{
+      vec4 quat;
+      vec2 clothlean;
+      float anglediff;
+      float distancepoint;
+      vec3 pos;
+   };
+   
+   layout(std140, binding=3) uniform ClothPoints{
+      uint startpos;
+      uint vecsize;
+      uint ringsize;
+      uint memstride;
+      ClothPoint clothpoints[1024];
+   };
+
+ubobind ClothPoints 4
+
+vertpipe order 3
+   // nothing tho
+   //vertpos.x = vertpos.x + (gl_DrawID * 20);
+   vertpos.xyz = vertpos.xyz + clothpoints[0].pos;
+   //vertpos.xyz = vertpos.xyz + vec3(0,0, clothpoints[1].clothlean.y);
+   //vertpos.xyz = vertpos.xyz + vec3(0,0, clothpoints[0].distancepoint);
+   //vertpos.xyz = vertpos.xyz + vec3(0,0,ringsize * 5);
+
+fragpipe order 77
+   finalcolor.x = 1.0;
+   finalcolor.y = 1.0;
+   finalcolor.z = 0.0;

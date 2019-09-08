@@ -1,0 +1,6 @@
+packages:
+   mapper:
+      requires: roengl
+self:
+   package: mapper
+

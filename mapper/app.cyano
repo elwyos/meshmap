@@ -1,0 +1,16 @@
+appname> Sanfish
+//mode: iphone5
+//mode: ipad
+//mode: iphone
+mode: gametest
+//mode: oculus
+//mode: bigscreen
+splashpage> Default.png
+appstoreid> 654827542
+autocomms
+rsscaling: 1.0
+roensachs: disable
+//resolution: 320 900
+//landscape
+//resolution: 1800 1000
+resolution: 1600 1000
